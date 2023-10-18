@@ -102,12 +102,11 @@ source $ZSH/oh-my-zsh.sh
 
 LS_COLORS=$LS_COLORS:'di=1;33:' ; export LS_COLORS
 
-
+export gaussian=~/Documents/Fluids/gaussian
 alias expanse='ssh dbuhl@login.expanse.sdsc.edu -Y'
 alias hb='ssh dbuhl@hb.ucsc.edu'
 alias grape='ssh -o HostKeyAlgoritm="ssh-rsa"  dbuhl@grape.soe.ucsc.edu'
 
-alias dlwd='cd ~/Downloads'
 alias zconf='vim ~/.zshrc'
 alias vconf='vim ~/.vimrc'
 alias vcolors='cd ~/.vim/plugged/onedark.vim/colors'
@@ -115,40 +114,37 @@ alias nconf='vim ~/.config/neofetch/config.conf'
 alias tconf='vim ~/.tmux.conf'
 alias rzsh='source ~/.zshrc'
 alias rtmux='tmux source ~/.tmux.conf'
-alias rconda='source ~/miniconda3/bin/activate'
-alias deda="conda activate dedalus3"
-alias pyfold='cd ~/Desktop/"Research Fall 2023"/"Python Code"'
-alias ffold='cd ~/Desktop/"Research Fall 2023"/"Fortran Code"'
-alias mfold='cd ~/Desktop/"Research Fall 2023"/"Matlab Code"'
-alias am250fold='cd ~/Desktop/"AM 250 Stuff"'
-alias matlab='cd /usr/local/MATLAB/R2023b/bin; ./matlab'
+alias ffold='cd ~/Documents/Fluids/gaussian'
+alias update='sudo pacman -Syu'
+alias delete='sudo pacman -Rcsu'
+alias gfold='cd ~/Documents'
+alias pa='sh ~/Documents/configFiles/bashscripts/printalias'
+alias docs='cd ~/Documents'
+alias rconda='source ~/miniforge3/bin/activate'
+
 
 PROMPT='%B%F{white}[𝚫 %F{33}D%F{220}B %F{white}%1~] ∝ %F{158}' 
-
-tmux
 
 echo -e '\n\n'
 
 neofetch
 
-echo -e '\t\033[1;96mAliases\t\t\t\033[1;93mDescription\n\t\033[1;97m-------\t\t\t-----------'
-echo -e '\t\033[0;96mzconf\t\t\t\033[0;93mZSH Config File'
-echo -e '\t\033[0;96mvconf\t\t\t\033[0;93mVIM Config File'
-echo -e '\t\033[0;96mtconf\t\t\t\033[0;93mTMUX Config File'
-echo -e '\t\033[0;96mvcolors\t\t\t\033[0;93mVIM Theme Colors'
-echo -e '\t\033[0;96mrzsh\t\t\t\033[0;93mReload ZSH'
-echo -e '\t\033[0;96mrtmux\t\t\t\033[0;93mReload TMUX'
-echo -e '\t\033[0;96mrconda\t\t\t\033[0;93mRun Conda'
-echo -e '\t\033[0;96mdeda\t\t\t\033[0;93mActivate Dedalus Library'
-echo -e '\t\033[0;96mpyfold\t\t\t\033[0;93mCD to Python Folder'
-echo -e '\t\033[0;96mffold\t\t\t\033[0;93mCD to Fortran Folder'
-echo -e '\t\033[0;96mmfold\t\t\t\033[0;93mCD to Matlab Folder'
-echo -e '\t\033[0;96mam250fold\t\t\033[0;93mCD to AM 250 Folder'
-echo -e '\t\033[0;96mdlwd\t\t\t\033[0;93mCD to Downloads Folder'
-echo -e '\t\033[0;96mmatlab\t\t\t\033[0;93mOpen Matlab IDE'
-echo -e '\n\t\033[1;96mLog Ons\t\t\t\033[1;93mMachine\n\t\033[1;97m-------\t\t\t-------'
-echo -e '\t\033[0;96mexpanse\t\t\t\033[0;93mSDSC Expanse Computer'
-echo -e '\t\033[0;96mhb\t\t\t\033[0;93mUCSC Hummingbird Computer'
-echo -e '\t\033[0;96mgrape\t\t\t\033[0;93mUCSC Grape Computer'
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/dante/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/dante/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/dante/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/dante/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 
-echo -e '\n'
+if [ -f "/home/dante/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/dante/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
