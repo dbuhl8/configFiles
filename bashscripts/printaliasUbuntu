@@ -1,0 +1,37 @@
+#!/bin/bash
+
+echo  '\n'
+
+echo '\t\033[1;96mAliases\t\t\t\033[1;93mDescription\n\t\033[1;97m-------\t\t\t-----------'
+echo '\t\033[0;96mzconf\t\t\t\033[0;93mZSH Config File'
+echo '\t\033[0;96mvconf\t\t\t\033[0;93mVIM Config File'
+echo '\t\033[0;96mtconf\t\t\t\033[0;93mTMUX Config File'
+echo '\t\033[0;96mvcolors\t\t\t\033[0;93mVIM Theme Colors'
+echo '\t\033[0;96mrzsh\t\t\t\033[0;93mReload ZSH'
+echo '\t\033[0;96mrtmux\t\t\t\033[0;93mReload TMUX'
+echo '\t\033[0;96mrconda\t\t\t\033[0;93mRun Conda'
+echo '\t\033[0;96mdeda\t\t\t\033[0;93mActivate Dedalus Library'
+echo '\t\033[0;96mpyfold\t\t\t\033[0;93mCD to Python Folder'
+echo '\t\033[0;96mffold\t\t\t\033[0;93mCD to Fortran Folder'
+echo '\t\033[0;96mmfold\t\t\t\033[0;93mCD to Matlab Folder'
+echo '\t\033[0;96mdlwd\t\t\t\033[0;93mCD to Downloads Folder'
+echo '\t\033[0;96mmatlab\t\t\t\033[0;93mOpen Matlab IDE'
+
+
+echo '\n\t\033[1;96mNavigation\t\t\033[1;93mFolder\n\t\033[1;97m----------\t\t------'
+echo '\t\033[0;96mdocs\t\t\t\033[0;93mDocuments Folder'
+
+
+echo '\n\t\033[1;96mPath Aliases\t\t\033[1;93mPath\n\t\033[1;97m------------\t\t----'
+echo '\t\033[0;96mgaussian\t\t\033[0;93mGP Github Folder'
+echo '\t\033[0;96mam250\t\t\t\033[0;93mCD to AM 250 Folder'
+
+
+echo '\n\t\033[1;96mLog Ons\t\t\t\033[1;93mMachine\n\t\033[1;97m-------\t\t\t-------'
+echo '\t\033[0;96mexpanse\t\t\t\033[0;93mSDSC Expanse Computer'
+echo '\t\033[0;96mhb\t\t\t\033[0;93mUCSC Hummingbird Computer'
+echo '\t\033[0;96mgrape\t\t\t\033[0;93mUCSC Grape Computer'
+echo '\t\033[0;96march\t\t\t\033[0;93mHome Arch Linux PC'
+
+
+echo  '\n'
