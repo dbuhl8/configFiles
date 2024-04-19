@@ -41,6 +41,7 @@ nnoremap <leader>g :Rg<CR>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>v :vsplit<CR>
+"nnoremap <leader>c get buffer name, switch buffer, close prev buffer
 "}}}
 
 "Vimscript {{{
@@ -66,7 +67,6 @@ augroup filetype_fortran
     autocmd!
     autocmd FileType fortran nnoremap <buffer> c I!<esc>$
     autocmd FileType fortran nnoremap <buffer> C ^x$
-    autocmd FileType fortran :iabbrev <buffer> if <esc>:set autoindent <cr>Aif () then<cr><cr>end if <esc>:set noautoindent <cr>kk$F)i
     autocmd FileType fortran :iabbrev <buffer> do <esc>:set autoindent <cr>Ado <cr><cr>end do <esc>:set noautoindent <cr>kkA
     autocmd FileType fortran :iabbrev <buffer> sr <esc>:set autoindent <cr>Asubroutine<cr><cr>end subroutine <esc>:set noautoindent <cr>kkA
     autocmd FileType fortran :iabbrev <buffer> subroutine <esc>:set autoindent <cr>Asubroutine<cr><cr>end subroutine <esc>:set noautoindent <cr>kkA
@@ -77,13 +77,24 @@ augroup filetype_fortran
     autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>end function<esc>:set noautoindent <cr>kkA
     autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>end function<esc>:set noautoindent <cr>kkA
     autocmd FileType fortran :iabbrev <buffer> int integer ::
+    autocmd FileType fortran :iabbrev <buffer> lg logical ::
     autocmd FileType fortran :iabbrev <buffer> real real ::
     autocmd FileType fortran :iabbrev <buffer> rd real, dimension() :: <esc>F)i
+    autocmd FileType fortran :iabbrev <buffer> ra real, allocatable :: 
     autocmd FileType fortran nnoremap <buffer> <TAB> >>
-    autocmd FileType fortran vnoremap <buffer> <TAB> >>
+    autocmd FileType fortran nnoremap <buffer> L $
+    autocmd FileType fortran nnoremap <buffer> H 0
+    autocmd FileType fortran vnoremap <buffer> ( c()<esc>P
+    autocmd FileType fortran vnoremap <buffer> do cdo<esc>jP
     autocmd FileType fortran :iabbrev <buffer> ( ()<esc>i
+    "autocmd FileType fortran onoremap <buffer> b insert function call here
     "autocmd FileType fortran let fortran_fold=1
     "autocmd FileType fortran setlocal foldmethod=syntax
+    "
+    "function smartclear()
+    "
+    "
+    "end function
 augroup END
 "}}}
 
@@ -96,12 +107,12 @@ set linebreak
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set hlsearch incsearch
 
 set cursorline
 set number 
 
 set background=dark
-"let fortran_free_source=1
 filetype indent off
 syntax enable
 
