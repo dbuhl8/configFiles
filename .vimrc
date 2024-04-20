@@ -41,7 +41,17 @@ nnoremap <leader>g :Rg<CR>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+"nnoremap <leader>c :call closebuffer()<cr>
+nnoremap H 0
+nnoremap L $
 "nnoremap <leader>c get buffer name, switch buffer, close prev buffer
+"}}}
+
+"Functions {{{
+
+
+
 "}}}
 
 "Vimscript {{{
@@ -67,23 +77,21 @@ augroup filetype_fortran
     autocmd!
     autocmd FileType fortran nnoremap <buffer> c I!<esc>$
     autocmd FileType fortran nnoremap <buffer> C ^x$
-    autocmd FileType fortran :iabbrev <buffer> do <esc>:set autoindent <cr>Ado <cr><cr>end do <esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> sr <esc>:set autoindent <cr>Asubroutine<cr><cr>end subroutine <esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> subroutine <esc>:set autoindent <cr>Asubroutine<cr><cr>end subroutine <esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> module <esc>:set autoindent <cr>Amodule<cr><cr>end module<esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>end module<esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>end program<esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Amodule<cr><cr>end module<esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>end function<esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>end function<esc>:set noautoindent <cr>kkA
+    autocmd FileType fortran :iabbrev <buffer> do <esc>:set autoindent <cr>Ado<cr><cr>end do <esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> sr <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> subroutine <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> module <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> int integer ::
     autocmd FileType fortran :iabbrev <buffer> lg logical ::
     autocmd FileType fortran :iabbrev <buffer> real real ::
     autocmd FileType fortran :iabbrev <buffer> rd real, dimension() :: <esc>F)i
     autocmd FileType fortran :iabbrev <buffer> ra real, allocatable :: 
     autocmd FileType fortran nnoremap <buffer> <TAB> >>
-    autocmd FileType fortran nnoremap <buffer> L $
-    autocmd FileType fortran nnoremap <buffer> H 0
     autocmd FileType fortran vnoremap <buffer> ( c()<esc>P
     autocmd FileType fortran vnoremap <buffer> do cdo<esc>jP
     autocmd FileType fortran :iabbrev <buffer> ( ()<esc>i
@@ -107,7 +115,9 @@ set linebreak
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set autoread
 set hlsearch incsearch
+set clipboard^=unnamedplus
 
 set cursorline
 set number 
@@ -145,7 +155,5 @@ set noshowmode
 hi Normal guibg=NONE ctermbg=NONE
 
 "}}}
-
-
 
 
