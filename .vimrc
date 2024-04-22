@@ -55,7 +55,7 @@ Plug 'junegunn/fzf.vim'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'hrsh7th/vim-vsnip'
 "Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 
 
 call plug#end()
