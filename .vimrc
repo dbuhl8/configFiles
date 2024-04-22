@@ -48,6 +48,7 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+"I haven't gotten any of them working :/
 "LSP Plugins
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'mattn/vim-lsp-settings'
@@ -56,7 +57,7 @@ Plug 'junegunn/fzf.vim'
 "Plug 'hrsh7th/vim-vsnip'
 "Plug 'hrsh7th/vim-vsnip-integ'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 
+"Plug
 
 call plug#end()
 "}}}
@@ -143,6 +144,20 @@ augroup filetype_fortran
     autocmd FileType fortran :iabbrev <buffer> ( ()<esc>i
 augroup END
 "}}}
+
+"SBatch (PBS) / Shell (sh) {{{
+
+augroup filetype_pbs
+
+    autocmd!
+    autocmd FileType sh :nnoremap <buffer> c I#<esc>$
+    autocmd FileType sh :nnoremap <buffer> C I#<esc>$
+
+
+augroup END 
+
+"}}}
+
 
 "LSP {{{
 
