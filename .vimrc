@@ -158,7 +158,6 @@ augroup END
 
 "}}}
 
-
 "LSP {{{
 
 "if executable('pylsp')
