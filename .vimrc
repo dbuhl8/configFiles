@@ -56,7 +56,8 @@ Plug 'junegunn/fzf.vim'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'hrsh7th/vim-vsnip'
 "Plug 'hrsh7th/vim-vsnip-integ'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"This one seems to be the best so far, but is sort of annoying to set up.
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug
 
 call plug#end()
@@ -74,6 +75,7 @@ nnoremap <leader>g :Rg<CR>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>c :CocConfig<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> K :call ShowDocumentation()<CR>
 "inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -124,15 +126,15 @@ augroup filetype_fortran
     autocmd!
     autocmd FileType fortran nnoremap <buffer> c I!<esc>$
     autocmd FileType fortran nnoremap <buffer> C ^x$
-    autocmd FileType fortran :iabbrev <buffer> do <esc>:set autoindent <cr>Ado<cr><cr>end do <esc>:set noautoindent <cr>kkA
-    autocmd FileType fortran :iabbrev <buffer> sr <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> subroutine <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> module <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
+    "autocmd FileType fortran :iabbrev <buffer> do <esc>:set autoindent <cr>Ado<cr><cr>end do <esc>:set noautoindent <cr>kkA
+    "autocmd FileType fortran :iabbrev <buffer> sr <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
+    "autocmd FileType fortran :iabbrev <buffer> subroutine <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
+    "autocmd FileType fortran :iabbrev <buffer> module <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    "autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    "autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
+    "autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    "autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
+    "autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> int integer ::
     autocmd FileType fortran :iabbrev <buffer> lg logical ::
     autocmd FileType fortran :iabbrev <buffer> real real ::
@@ -217,6 +219,7 @@ augroup END
 "}}}
 
 "General Settings {{{
+set updatetime=300
 set mouse=a
 set encoding=UTF-8
 set ignorecase
@@ -235,6 +238,7 @@ set number
 set background=dark
 filetype indent off
 syntax on
+syntax enable
 set t_Co=256
 
 
