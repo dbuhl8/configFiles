@@ -112,6 +112,16 @@ augroup filetype_vim
 augroup END
 "}}}
 
+"Tmux {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType tmux nnoremap c I#<esc>$
+    autocmd FileType tmux nnoremap C ^x<esc>$
+    autocmd FileType tmux nnoremap - ddp
+    autocmd FileType tmux nnoremap _ ddkkp
+augroup END
+"}}}
+
 "Python {{{
 "I don't really use python that much, but if I ever do again this will get
 "longer trust me
