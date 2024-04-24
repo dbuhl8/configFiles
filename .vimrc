@@ -23,6 +23,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
 
 "Oh yeah
+"This can be further customized by coc.nvim
 Plug 'itchyny/lightline.vim'
 
 "I'm sure it does something nice
@@ -33,9 +34,6 @@ Plug 'lervag/vimtex'
 
 "Eh I barely use this, fzf is much better
 Plug 'preservim/nerdtree'
-
-"Syntax thing. eh, dont need it rn
-"Plug 'sheerun/vim-polyglot'
 
 "I have configurated this repo a lot! So much so that I made my own custom
 "command laying in the fzf.vim/plugin/fzf.vim file
@@ -50,15 +48,8 @@ Plug 'junegunn/fzf.vim'
 
 "I haven't gotten any of them working :/
 "LSP Plugins
-"Plug 'prabirshrestha/vim-lsp'
-"Plug 'mattn/vim-lsp-settings'
-"Plug 'prabirshrestha/asyncomplete.vim'
-"Plug 'prabirshrestha/asyncomplete-lsp.vim'
-"Plug 'hrsh7th/vim-vsnip'
-"Plug 'hrsh7th/vim-vsnip-integ'
-"This one seems to be the best so far, but is sort of annoying to set up.
+"Be sure to update the CocConfig file for fortls and semanticHighlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug
 
 call plug#end()
 "}}}
@@ -77,14 +68,8 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>c :CocConfig<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <silent> K :call ShowDocumentation()<CR>
-"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-"nnoremap <leader>c :call closebuffer()<cr>
 nnoremap H 0
 nnoremap L $
-"nnoremap <leader>c get buffer name, switch buffer, close prev buffer
 "}}}
 
 "Functions {{{
@@ -97,7 +82,6 @@ function! ShowDocumentation()
     call feedkeys('K', 'in')
   endif
 endfunction
-
 
 "}}}
 
@@ -113,7 +97,7 @@ augroup END
 "}}}
 
 "Tmux {{{
-augroup filetype_vim
+augroup filetype_tmux
     autocmd!
     autocmd FileType tmux nnoremap c I#<esc>$
     autocmd FileType tmux nnoremap C ^x<esc>$
@@ -136,15 +120,15 @@ augroup filetype_fortran
     autocmd!
     autocmd FileType fortran nnoremap <buffer> c I!<esc>$
     autocmd FileType fortran nnoremap <buffer> C ^x$
-    "autocmd FileType fortran :iabbrev <buffer> do <esc>:set autoindent <cr>Ado<cr><cr>end do <esc>:set noautoindent <cr>kkA
-    "autocmd FileType fortran :iabbrev <buffer> sr <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
-    "autocmd FileType fortran :iabbrev <buffer> subroutine <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
-    "autocmd FileType fortran :iabbrev <buffer> module <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
-    "autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
-    "autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
-    "autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
-    "autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
-    "autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> do <esc>:set autoindent <cr>Ado<cr><cr>end do <esc>:set noautoindent <cr>kkA
+    autocmd FileType fortran :iabbrev <buffer> sr <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> subroutine <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> module <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> int integer ::
     autocmd FileType fortran :iabbrev <buffer> lg logical ::
     autocmd FileType fortran :iabbrev <buffer> real real ::
@@ -152,79 +136,51 @@ augroup filetype_fortran
     autocmd FileType fortran :iabbrev <buffer> ra real, allocatable :: 
     autocmd FileType fortran nnoremap <buffer> <TAB> >>
     autocmd FileType fortran vnoremap <buffer> ( c()<esc>P
-    "autocmd FileType fortran vnoremap <buffer> do cdo<esc>jP
     autocmd FileType fortran :iabbrev <buffer> ( ()<esc>i
+    autocmd FileType fortran set tabstop=2
+    autocmd FileType fortran set shiftwidth=2
 augroup END
 "}}}
 
 "SBatch (PBS) / Shell (sh) {{{
-
+"I don't do shell script editting all that much so this is not the most used. 
 augroup filetype_pbs
-
     autocmd!
     autocmd FileType sh :nnoremap <buffer> c I#<esc>$
     autocmd FileType sh :nnoremap <buffer> C I#<esc>$
-
-
 augroup END 
 
 "}}}
 
 "LSP {{{
 
-"if executable('pylsp')
-    " pip install python-lsp-server
-    "au User lsp_setup call lsp#register_server({
-        "\ 'name': 'pylsp',
-        "\ 'cmd': {server_info->['pylsp']},
-        "\ 'allowlist': ['python'],
-        "\ })
-"endif
+"Some of the Coc Config file contains LSP configuration options. This section is to adjust binds and vim functions that utilize the LSP
 
-"if (executable('fortls'))
-	    "au User lsp_setup call lsp#register_server({
-		"\ 'name': 'fortls',
-		"\ 'cmd': {'fortls', '--lowercase_instrinsics', '--hover_signature', '--hover_language=fortran', '--use_signature_help'} 
-		"\ 'allowlist': ['fortran']
-		"\ })
-	"endif
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-"function! s:on_lsp_buffer_enabled() abort
-    "setlocal omnifunc=lsp#complete
-    "setlocal signcolumn=yes
-    "if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    "nmap <buffer> gd <plug>(lsp-definition)
-    "nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    "nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    "nmap <buffer> gr <plug>(lsp-references)
-    "nmap <buffer> gi <plug>(lsp-implementation)
-    "nmap <buffer> gt <plug>(lsp-type-definition)
-    "nmap <buffer> <leader>rn <plug>(lsp-rename)
-    "nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    "nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    "nmap <buffer> K <plug>(lsp-hover)
-    "nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    "nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+"Use tab to refresh the list
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+"Press shift+k in order to show documentation for a function
+nnoremap <silent> K :call ShowDocumentation()<CR>
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
 
-    "let g:lsp_format_sync_timeout = 1000
-    "autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
-    " refer to doc to add more commands
-"endfunction
 
-"augroup lsp_install
-    "au!
-    "" call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    "autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-"augroup END
+"Use Tab / Shift+Tab in order to navigate the dropdown
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
-" allow modifying the completeopt variable, or it will
-" be overridden all the time
-"let g:asyncomplete_auto_completeopt = 0
-
-"set completeopt=menuone,noinsert,noselect,preview
-
-"autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+"Use <CR> in order to select an option from the LSP dropdown
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 "}}}
 
@@ -244,6 +200,7 @@ set clipboard^=unnamedplus
 
 set cursorline
 set number 
+set signcolumn=yes
 
 set background=dark
 filetype indent off
