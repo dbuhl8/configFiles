@@ -103,6 +103,19 @@ augroup filetype_tmux
     autocmd FileType tmux nnoremap C ^x<esc>$
     autocmd FileType tmux nnoremap - ddp
     autocmd FileType tmux nnoremap _ ddkkp
+    autocmd FileType tmux set tabstop=4
+    autocmd FileType tmux set shiftwidth=4
+augroup END
+"}}}
+
+"LaTeX {{{
+augroup filetype_tex
+    autocmd!
+    autocmd FileType tex nnoremap c I%<esc>$
+    autocmd FileType tex nnoremap C ^x<esc>$
+    autocmd FileType tex nnoremap - ddp
+    autocmd FileType tex nnoremap _ ddkkp
+    autocmd FileType tex set autoindent
 augroup END
 "}}}
 
@@ -126,7 +139,7 @@ augroup filetype_fortran
     autocmd FileType fortran :iabbrev <buffer> module <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
+    autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> int integer ::
@@ -136,9 +149,20 @@ augroup filetype_fortran
     autocmd FileType fortran :iabbrev <buffer> ra real, allocatable :: 
     autocmd FileType fortran nnoremap <buffer> <TAB> >>
     autocmd FileType fortran vnoremap <buffer> ( c()<esc>P
-    autocmd FileType fortran :iabbrev <buffer> ( ()<esc>i
-    autocmd FileType fortran set tabstop=2
-    autocmd FileType fortran set shiftwidth=2
+    "autocmd FileType fortran :iabbrev <buffer> ( ()<esc>i
+    autocmd FileType fortran setlocal textwidth=80
+    autocmd FileType fortran setlocal tabstop=2
+    autocmd FileType fortran setlocal shiftwidth=2
+augroup END
+"}}}
+
+"Make {{{
+augroup filetype_make
+    autocmd!
+    autocmd FileType make nnoremap c I#<esc>$
+    autocmd FileType make nnoremap C ^x<esc>$
+    autocmd FileType make nnoremap - ddp
+    autocmd FileType make nnoremap _ ddkkp
 augroup END
 "}}}
 
