@@ -111,11 +111,15 @@ augroup END
 "LaTeX {{{
 augroup filetype_tex
     autocmd!
-    autocmd FileType tex nnoremap c I%<esc>$
-    autocmd FileType tex nnoremap C ^x<esc>$
-    autocmd FileType tex nnoremap - ddp
-    autocmd FileType tex nnoremap _ ddkkp
-    autocmd FileType tex set autoindent
+    autocmd FileType tex nnoremap <buffer> c I%<esc>$
+    autocmd FileType tex nnoremap <buffer>C ^x<esc>$
+    autocmd FileType tex nnoremap <buffer>- ddp
+    autocmd FileType tex nnoremap <buffer>_ ddkkp
+    autocmd FileType tex setlocal textwidth=80
+    autocmd FileType tex setlocal autoindent
+    autocmd FileType tex nnoremap <buffer> <localleader>b viwbf_hc\bs{}<esc>P
+    autocmd FileType tex vnoremap <buffer> <localleader>b c\bs{}<esc>P
+    autocmd FileType tex vnoremap <buffer> <localleader>m c$$<esc>P
 augroup END
 "}}}
 
@@ -147,6 +151,7 @@ augroup filetype_fortran
     autocmd FileType fortran :iabbrev <buffer> real real ::
     autocmd FileType fortran :iabbrev <buffer> rd real, dimension() :: <esc>F)i
     autocmd FileType fortran :iabbrev <buffer> ra real, allocatable :: 
+    autocmd FileType fortran nnoremap <buffer> <localleader>n i&<cr><esc>
     autocmd FileType fortran nnoremap <buffer> <TAB> >>
     autocmd FileType fortran vnoremap <buffer> ( c()<esc>P
     "autocmd FileType fortran :iabbrev <buffer> ( ()<esc>i
