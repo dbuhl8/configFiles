@@ -117,7 +117,7 @@ augroup filetype_tex
     autocmd FileType tex nnoremap <buffer>_ ddkkp
     autocmd FileType tex setlocal textwidth=80
     autocmd FileType tex setlocal autoindent
-    autocmd FileType tex nnoremap <buffer> <localleader>b viwbf_hc\bs{}<esc>P
+    "autocmd FileType tex nnoremap <buffer> <localleader>b viwbf_hc\bs{}<esc>P
     autocmd FileType tex vnoremap <buffer> <localleader>b c\bs{}<esc>P
     autocmd FileType tex vnoremap <buffer> <localleader>m c$$<esc>P
 augroup END
