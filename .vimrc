@@ -158,6 +158,7 @@ augroup filetype_fortran
     autocmd FileType fortran setlocal textwidth=80
     autocmd FileType fortran setlocal tabstop=2
     autocmd FileType fortran setlocal shiftwidth=2
+    autocmd FileType fortran setlocal foldmethod=indent
 augroup END
 "}}}
 
