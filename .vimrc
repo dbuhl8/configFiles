@@ -68,8 +68,8 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>c :CocConfig<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap H 0
-nnoremap L $
+noremap H 0
+noremap L $
 "}}}
 
 "Functions {{{
@@ -111,7 +111,7 @@ augroup END
 "LaTeX {{{
 augroup filetype_tex
     autocmd!
-    autocmd FileType tex nnoremap <buffer> c I%<esc>$
+    autocmd FileType tex nnoremap <buffer>c I%<esc>$
     autocmd FileType tex nnoremap <buffer>C ^x<esc>$
     autocmd FileType tex nnoremap <buffer>- ddp
     autocmd FileType tex nnoremap <buffer>_ ddkkp
@@ -159,6 +159,13 @@ augroup filetype_fortran
     autocmd FileType fortran setlocal tabstop=2
     autocmd FileType fortran setlocal shiftwidth=2
     autocmd FileType fortran setlocal foldmethod=indent
+augroup END
+"}}}
+
+"Matlab {{{
+augroup filetype_matlab
+    autocmd FileType matlab nnoremap <buffer>c I%<esc>$
+    autocmd FileType matlab nnoremap <buffer>C ^x<esc>$
 augroup END
 "}}}
 
