@@ -125,7 +125,10 @@ augroup END
 "longer trust me
 augroup filetype_python
     autocmd!
-    autocmd FileType python :nnoremap <buffer> c I#<esc>$
+    autocmd FileType python nnoremap <buffer> c I#<esc>$
+    autocmd FileType python nnoremap <buffer> C 
+    autocmd FileType python setlocal textwidth=80
+    autocmd FileType python setlocal autoindent
 augroup END
 "}}}
 
@@ -136,16 +139,11 @@ augroup filetype_fortran
     autocmd FileType fortran nnoremap <buffer> C ^x$
     autocmd FileType fortran :iabbrev <buffer> do <esc>:set autoindent <cr>Ado<cr><cr>end do <esc>:set noautoindent <cr>kkA
     autocmd FileType fortran :iabbrev <buffer> sr <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> subroutine <esc>:set autoindent <cr>Asubroutine<cr><cr>implicit none<cr><cr>end subroutine <esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> module <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> program <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> function <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> int integer ::
     autocmd FileType fortran :iabbrev <buffer> lg logical ::
-    autocmd FileType fortran :iabbrev <buffer> real real ::
     autocmd FileType fortran :iabbrev <buffer> rd real, dimension() :: <esc>F)i
     autocmd FileType fortran :iabbrev <buffer> ra real, allocatable :: 
     autocmd FileType fortran nnoremap <buffer> <localleader>n i&<cr><esc>
