@@ -68,8 +68,11 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>c :CocConfig<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap - ddp
+nnoremap _ ddkkp
 noremap H 0
 noremap L $
+
 "}}}
 
 "Functions {{{
@@ -90,8 +93,6 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim nnoremap c I"<esc>$
     autocmd FileType vim nnoremap C ^x<esc>$
-    autocmd FileType vim nnoremap - ddp
-    autocmd FileType vim nnoremap _ ddkkp
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 "}}}
@@ -101,8 +102,6 @@ augroup filetype_tmux
     autocmd!
     autocmd FileType tmux nnoremap c I#<esc>$
     autocmd FileType tmux nnoremap C ^x<esc>$
-    autocmd FileType tmux nnoremap - ddp
-    autocmd FileType tmux nnoremap _ ddkkp
     autocmd FileType tmux set tabstop=4
     autocmd FileType tmux set shiftwidth=4
 augroup END
@@ -113,8 +112,6 @@ augroup filetype_tex
     autocmd!
     autocmd FileType tex nnoremap <buffer>c I%<esc>$
     autocmd FileType tex nnoremap <buffer>C ^x<esc>$
-    autocmd FileType tex nnoremap <buffer>- ddp
-    autocmd FileType tex nnoremap <buffer>_ ddkkp
     autocmd FileType tex setlocal textwidth=80
     autocmd FileType tex setlocal autoindent
     "autocmd FileType tex nnoremap <buffer> <localleader>b viwbf_hc\bs{}<esc>P
