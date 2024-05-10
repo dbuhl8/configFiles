@@ -117,7 +117,8 @@ augroup filetype_tex
     "autocmd FileType tex nnoremap <buffer> <localleader>b viwbf_hc\bs{}<esc>P
     autocmd FileType tex vnoremap <buffer> <localleader>b c\bs{}<esc>P
     autocmd FileType tex vnoremap <buffer> <localleader>m c$$<esc>P
-    autocmd FileType tex vnoremap <buffer> <localleader>h c\colorbox{yellow}{}<esc>P
+    autocmd FileType tex vnoremap <buffer> <localleader>c c%<esc>p
+    autocmd FileType tex vnoremap <buffer> <localleader>h c\hl{}<esc>P
 augroup END
 "}}}
 
