@@ -144,7 +144,6 @@ augroup filetype_fortran
     autocmd FileType fortran :iabbrev <buffer> md <esc>:set autoindent <cr>Amodule<cr><cr>implicit none<cr><cr>end module<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> pg <esc>:set autoindent <cr>Aprogram<cr><cr>implicit none<cr><cr>end program<esc>:set noautoindent <cr>kkkkA
     autocmd FileType fortran :iabbrev <buffer> fct <esc>:set autoindent <cr>Afunction<cr><cr>implicit none<cr><cr>end function<esc>:set noautoindent <cr>kkkkA
-    autocmd FileType fortran :iabbrev <buffer> int integer ::
     autocmd FileType fortran :iabbrev <buffer> lg logical ::
     autocmd FileType fortran :iabbrev <buffer> rd real, dimension() :: <esc>F)i
     autocmd FileType fortran :iabbrev <buffer> ra real, allocatable :: 
