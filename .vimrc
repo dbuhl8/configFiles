@@ -51,6 +51,8 @@ Plug 'junegunn/fzf.vim'
 "Be sure to update the CocConfig file for fortls and semanticHighlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'tpope/vim-obsession'
+
 call plug#end()
 "}}}
 
@@ -59,11 +61,12 @@ let mapleader=" "
 let maplocalleader="\\"
 nnoremap <leader>s :w<CR>
 nnoremap <leader>r :source ~/.vimrc<CR>
-nnoremap <leader>p :PlugInstall<CR>
+nnoremap <leader>i :PlugInstall<CR>
 nnoremap <leader>u :PlugUpdate<CR>
 nnoremap <leader>f :SFiles<CR>
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprev<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>c :CocConfig<CR>
