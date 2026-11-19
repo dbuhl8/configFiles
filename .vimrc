@@ -46,6 +46,9 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Clipboard support for wayland/hyprland
+Plug 'jasonccox/vim-wayland-clipboard'
+
 "I haven't gotten any of them working :/
 "LSP Plugins
 "Be sure to update the CocConfig file for fortls and semanticHighlighting
@@ -71,6 +74,7 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>c :CocConfig<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>nf :setlocal nofoldenable<CR>
 nnoremap - ddp
 nnoremap _ ddkkp
 noremap H 0
@@ -97,6 +101,15 @@ augroup filetype_vim
     autocmd FileType vim nnoremap c I"<esc>$
     autocmd FileType vim nnoremap C ^x<esc>$
     autocmd FileType vim setlocal foldmethod=marker
+augroup END
+"}}}
+
+"Gnuplot {{{
+augroup filetype_gp
+    autocmd!
+    autocmd FileType gp nnoremap c I#<esc>$
+    autocmd FileType gp nnoremap C ^x<esc>$
+    autocmd FileType gp setlocal foldmethod=marker
 augroup END
 "}}}
 
@@ -131,11 +144,19 @@ augroup END
 augroup filetype_python
     autocmd!
     autocmd FileType python nnoremap <buffer> c I#<esc>$
-    autocmd FileType python nnoremap <buffer> C 
+    autocmd FileType python nnoremap <buffer> C ^x<esc>$
     autocmd FileType python setlocal textwidth=80
     autocmd FileType python setlocal autoindent
+    autocmd FileType python setlocal foldmethod=indent
 augroup END
 "}}}
+
+"Lua {{{
+augroup filetype_lua
+    autocmd!
+    autocmd FileType lua nnoremap <buffer> c I--<esc>$
+    autocmd FileType lua nnoremap <buffer> C ^xx<esc>$
+"Lua }}}
 
 "Fortran {{{
 augroup filetype_fortran 
@@ -232,7 +253,7 @@ set shiftwidth=4
 set expandtab
 set autoread
 set hlsearch incsearch
-set clipboard^=unnamedplus
+set clipboard=unnamedplus
 
 set cursorline
 set number 
